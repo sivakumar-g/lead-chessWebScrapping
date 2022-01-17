@@ -62,9 +62,9 @@ app.get('*',async(req,res)=>{
          
          let plainText = ''
 
-          restObj.map(pd=>{
-            console.log(pd)
-          })
+          // restObj.map(pd=>{
+          //   console.log(pd)
+          // })
          res.json(restObj);
     }
     else if(params.length ==3){
