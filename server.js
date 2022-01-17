@@ -60,12 +60,33 @@ app.get('*',async(req,res)=>{
 
     if(params.length ==2){//single / route
          
-         let plainText = ''
+         let plainText = 'ECO Chess Opening Codes: \n'
 
           // restObj.map(pd=>{
           //   console.log(pd)
           // })
-         res.json(restObj);
+          const keys = Object.keys(restObj);
+          const values = Object.values(restObj);
+
+            for(let i=0;i<keys.length;i++){
+              let t=''
+                plainText+=keys[i]+'  '+values[i].names+'\n'
+                
+                for(let j=0;j<values[i].moves;j++)
+                  {
+                    t+=values[i].moves[j]+' '
+                  }//forJ
+
+                plainText+=t
+            }//for
+          // console.log("keys__",keys,values)
+
+        // let returnData = {"plainData" : plainText};         
+        //   let finalJson=JSON.parse(returnData);
+          console.log("keys__",plainText)
+
+         res.json({data:plainText});
+        //  res.json(finalJson.plainText);
     }
     else if(params.length ==3){
         let obj = params[1]
